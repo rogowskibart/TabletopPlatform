@@ -11,7 +11,7 @@ import java.util.Set;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private PublisherRepository publisherRepository;
+    private final PublisherRepository publisherRepository;
 
     public Bootstrap(PublisherRepository publisherRepository) {
         this.publisherRepository = publisherRepository;
