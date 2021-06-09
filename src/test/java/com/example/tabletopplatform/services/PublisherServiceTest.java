@@ -7,11 +7,7 @@ import com.example.tabletopplatform.repositories.PublisherRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
@@ -28,7 +24,8 @@ class PublisherServiceTest {
     public static final long ID = 1L;
     PublisherService publisherService;
 
-    @Mock PublisherRepository publisherRepository;
+    @Mock
+    PublisherRepository publisherRepository;
 
     @BeforeEach
     public void setUp() {
