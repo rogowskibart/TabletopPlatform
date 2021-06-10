@@ -71,9 +71,9 @@ public class Bootstrap implements CommandLineRunner {
         splendor.setMinAge(10);
         splendor.setPublisher(daysOfWonder);
         gameSet.add(splendor);
-        
 
-        Publisher zMan= publisherRepository.findByName("Z-Man Games");
+
+        Publisher zMan = publisherRepository.findByName("Z-Man Games");
 
         Game pandemicLegacy1 = new Game();
         pandemicLegacy1.setTitle("Pandemic Legacy: Season 1");
@@ -114,9 +114,9 @@ public class Bootstrap implements CommandLineRunner {
         agricola.setMinAge(12);
         agricola.setPublisher(zMan);
         gameSet.add(agricola);
-        
 
-        Publisher cephalofairGames= publisherRepository.findByName("Cephalofair Games");
+
+        Publisher cephalofairGames = publisherRepository.findByName("Cephalofair Games");
 
         Game gloomhaven = new Game();
         gloomhaven.setTitle("Gloomhaven");
@@ -158,8 +158,8 @@ public class Bootstrap implements CommandLineRunner {
         frosthaven.setPublisher(cephalofairGames);
         gameSet.add(frosthaven);
 
-        
-        Publisher roxley= publisherRepository.findByName("Roxley");
+
+        Publisher roxley = publisherRepository.findByName("Roxley");
 
         Game brassBirmingham = new Game();
         brassBirmingham.setTitle("Brass: Birmingham");
@@ -201,8 +201,8 @@ public class Bootstrap implements CommandLineRunner {
         diceThrone.setPublisher(roxley);
         gameSet.add(diceThrone);
 
-        
-        Publisher fryxGames= publisherRepository.findByName("FryxGames");
+
+        Publisher fryxGames = publisherRepository.findByName("FryxGames");
 
         Game mars = new Game();
         mars.setTitle("Terraforming Mars");
@@ -244,8 +244,8 @@ public class Bootstrap implements CommandLineRunner {
         fleets.setPublisher(fryxGames);
         gameSet.add(fleets);
 
-        
-        Publisher fantasyFlightGames= publisherRepository.findByName("Fantasy Flight Games");
+
+        Publisher fantasyFlightGames = publisherRepository.findByName("Fantasy Flight Games");
 
         Game twilightImperium = new Game();
         twilightImperium.setTitle("Twilight Imperium: Fourth Edition");
@@ -287,8 +287,8 @@ public class Bootstrap implements CommandLineRunner {
         marvelChampions.setPublisher(fantasyFlightGames);
         gameSet.add(marvelChampions);
 
-        
-        Publisher czechGamesEdition= publisherRepository.findByName("Czech Games Edition");
+
+        Publisher czechGamesEdition = publisherRepository.findByName("Czech Games Edition");
 
         Game agesNew = new Game();
         agesNew.setTitle("Through the Ages: A New Story of Civilization");
@@ -330,8 +330,8 @@ public class Bootstrap implements CommandLineRunner {
         codenames.setPublisher(czechGamesEdition);
         gameSet.add(codenames);
 
-        
-        Publisher gmtGames= publisherRepository.findByName("GMT Games");
+
+        Publisher gmtGames = publisherRepository.findByName("GMT Games");
 
         Game twilightStruggle = new Game();
         twilightStruggle.setTitle("Twilight Struggle");
@@ -373,8 +373,8 @@ public class Bootstrap implements CommandLineRunner {
         pathsOfGlory.setPublisher(gmtGames);
         gameSet.add(pathsOfGlory);
 
-        
-        Publisher eggertspiele= publisherRepository.findByName("eggertspiele");
+
+        Publisher eggertspiele = publisherRepository.findByName("eggertspiele");
 
         Game greatWesternTrail = new Game();
         greatWesternTrail.setTitle("Great Western Trail");
@@ -416,8 +416,8 @@ public class Bootstrap implements CommandLineRunner {
         imperial.setPublisher(eggertspiele);
         gameSet.add(imperial);
 
-        
-        Publisher greaterThanGames= publisherRepository.findByName("Greater Than Games");
+
+        Publisher greaterThanGames = publisherRepository.findByName("Greater Than Games");
 
         Game spiritIsland = new Game();
         spiritIsland.setTitle("Spirit Island");
@@ -459,8 +459,8 @@ public class Bootstrap implements CommandLineRunner {
         medium.setPublisher(greaterThanGames);
         gameSet.add(medium);
 
-        
-        Publisher aresGames= publisherRepository.findByName("Ares Games");
+
+        Publisher aresGames = publisherRepository.findByName("Ares Games");
 
         Game warOfTheRing2 = new Game();
         warOfTheRing2.setTitle("War of the Ring: Second Edition");
@@ -502,8 +502,8 @@ public class Bootstrap implements CommandLineRunner {
         battleOfFive.setPublisher(aresGames);
         gameSet.add(battleOfFive);
 
-        
-        Publisher stonemaierGames= publisherRepository.findByName("Stonemaier Games");
+
+        Publisher stonemaierGames = publisherRepository.findByName("Stonemaier Games");
 
         Game scythe = new Game();
         scythe.setTitle("Scythe");
@@ -546,7 +546,7 @@ public class Bootstrap implements CommandLineRunner {
         gameSet.add(tapestry);
 
 
-        Publisher alea= publisherRepository.findByName("alea");
+        Publisher alea = publisherRepository.findByName("alea");
 
         Game burgundy = new Game();
         burgundy.setTitle("The Castles of Burgundy");
@@ -589,7 +589,7 @@ public class Bootstrap implements CommandLineRunner {
         gameSet.add(boraBora);
 
 
-        Publisher reposProduction= publisherRepository.findByName("Repos Production");
+        Publisher reposProduction = publisherRepository.findByName("Repos Production");
 
         Game wondersDuel = new Game();
         wondersDuel.setTitle("7 Wonders Duel");
@@ -632,7 +632,7 @@ public class Bootstrap implements CommandLineRunner {
         gameSet.add(timesUp);
 
 
-        Publisher pdVerlag= publisherRepository.findByName("PD-Verlag");
+        Publisher pdVerlag = publisherRepository.findByName("PD-Verlag");
 
         Game concordia = new Game();
         concordia.setTitle("Concordia");
