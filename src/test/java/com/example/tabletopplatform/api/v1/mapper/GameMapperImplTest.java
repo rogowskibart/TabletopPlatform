@@ -5,9 +5,7 @@ import com.example.tabletopplatform.domain.Game;
 import com.example.tabletopplatform.domain.Publisher;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.ManyToOne;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GameMapperImplTest {
 
