@@ -18,12 +18,12 @@ public class Publisher {
 
     private String name;
 
+    @JsonBackReference
     @OneToMany(
             mappedBy = "publisher",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JsonBackReference
     private Set<Game> games = new HashSet<>();
 
     public void addGame(Game game) {

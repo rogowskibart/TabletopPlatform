@@ -1,5 +1,6 @@
 package com.example.tabletopplatform.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Game {
 
     @Id
@@ -18,8 +20,8 @@ public class Game {
     private Integer maxPlayers;
     private Integer minAge;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER)
     private Publisher publisher;
 
     @Override

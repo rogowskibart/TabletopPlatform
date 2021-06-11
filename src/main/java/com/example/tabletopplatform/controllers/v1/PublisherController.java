@@ -22,12 +22,12 @@ public class PublisherController {
 
     @GetMapping
     public ResponseEntity<PublisherListDTO> getAllPublishers() {
-        return new ResponseEntity<PublisherListDTO>(new PublisherListDTO(publisherService.getAllPublishers()), HttpStatus.OK);
+        return new ResponseEntity<>(new PublisherListDTO(publisherService.getAllPublishers()), HttpStatus.OK);
     }
 
     @GetMapping("{name}")
     public ResponseEntity<PublisherDTO> getPublisherByName(@PathVariable String name) {
-        return new ResponseEntity<PublisherDTO>(
+        return new ResponseEntity<>(
                 publisherService.getPublisherByName(name), HttpStatus.OK
         );
     }
