@@ -1,15 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+import backend from '../api/backend';
 
 class GameList extends React.Component {
   state = { gameList: [] };
 
   onButtonClick = async () => {
-    const response = await axios.get('http://localhost:8080/api/v1/games/', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    const response = await backend.get('/games/', {});
 
     this.setState({ gameList: response.data.games });
   };
