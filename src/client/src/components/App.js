@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import GameList from './GameList';
 import GameScreen from './GameScreen';
 
 class App extends React.Component {
