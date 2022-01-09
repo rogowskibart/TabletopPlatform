@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import GameList from './GameList';
+import GameScreen from './GameScreen';
 
 class App extends React.Component {
   onSearchSubmit(term) {
@@ -11,7 +12,7 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{ marginTop: '10px' }}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        <GameList />
+        <GameScreen />
       </div>
     );
   }
