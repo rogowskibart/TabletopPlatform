@@ -2,7 +2,6 @@ import React from 'react';
 
 class GameList extends React.Component {
   render() {
-    console.log(this.props.games[0]);
     const games = this.props.games.map((game) => {
       return (
         <div key={game.id} className="ui card">
