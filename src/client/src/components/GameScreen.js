@@ -11,6 +11,12 @@ class GameScreen extends React.Component {
     this.setState({ gameList: response.data.games });
   };
 
+  componentDidMount = async () => {
+    const response = await backend.get('/games/', {});
+
+    this.setState({ gameList: response.data.games });
+  };
+
   render() {
     return (
       <div>
