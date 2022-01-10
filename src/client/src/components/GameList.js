@@ -1,22 +1,28 @@
 import React from 'react';
-import backend from '../api/backend';
 
 class GameList extends React.Component {
-  state = { gameList: [] };
-
-  onButtonClick = async () => {
-    const response = await backend.get('/games/', {});
-
-    this.setState({ gameList: response.data.games });
-  };
-
   render() {
+    const games = this.props.games.map((game) => {
+      return (
+        <div key={game.id} className="ui card">
+          <div className="content">
+            <div class="header">{game.title}</div>
+            <div className="meta">{game.publisher.name}</div>
+          </div>
+          <div className="extra content">
+            <span className="left floated">{game.minAge}+</span>
+            <span className="right floated">
+              {game.minPlayers}-{game.maxPlayers} players
+            </span>
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div>
-        <button class="ui button" onClick={this.onButtonClick}>
-          Click for games
-        </button>
-        <div>Found {this.state.gameList.length} games</div>
+        <div>Found {this.props.games.length} games</div>
+        <div className="ui cards">{games}</div>
       </div>
     );
   }
