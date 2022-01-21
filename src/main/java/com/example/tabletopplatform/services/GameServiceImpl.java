@@ -31,4 +31,11 @@ public class GameServiceImpl implements GameService {
     public GameDTO getGameByTitle(String title) {
         return gameMapper.gameToGameDTO(gameRepository.findByTitle(title));
     }
+
+    @Override
+    public GameDTO getGameById(Long id) {
+        return gameRepository.findById(id)
+                .map(gameMapper::gameToGameDTO)
+                .orElseThrow(ResourceNotFoundException::new);
+    }
 }

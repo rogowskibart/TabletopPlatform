@@ -9,4 +9,6 @@ public interface GameService {
     List<GameDTO> getAllGames();
 
     GameDTO getGameByTitle(String title);
+
+    GameDTO getGameById(Long id);
 }

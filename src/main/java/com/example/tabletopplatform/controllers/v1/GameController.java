@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api/v1/games/")
+@RequestMapping("/api/v1/games")
 @CrossOrigin("http://localhost:3000")
 public class GameController {
 
@@ -27,8 +27,13 @@ public class GameController {
         return new ResponseEntity<>(new GameListDTO(gameService.getAllGames()), HttpStatus.OK);
     }
 
-    @GetMapping("{title}")
+    @GetMapping("/title/{title}")
     public ResponseEntity<GameDTO> getGameByTitle(@PathVariable String title) {
         return new ResponseEntity<>(gameService.getGameByTitle(title), HttpStatus.OK);
+    }
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<GameDTO> getGameById(@PathVariable Long id) {
+        return new ResponseEntity<>(gameService.getGameById(id), HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.tabletopplatform.controllers.v1;
 
 import com.example.tabletopplatform.api.v1.model.PublisherDTO;
+import com.example.tabletopplatform.controllers.RestResponseEntityExceptionHandler;
 import com.example.tabletopplatform.services.PublisherService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,7 +41,9 @@ class PublisherControllerTest {
 
     @BeforeEach
     void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(publisherController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(publisherController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                .build();
     }
 
     @Test
@@ -58,7 +61,7 @@ class PublisherControllerTest {
         when(publisherService.getAllPublishers()).thenReturn(publishers);
 
         mockMvc.perform(get("/api/v1/publishers/")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.publishers", hasSize(2)));
 
@@ -73,7 +76,7 @@ class PublisherControllerTest {
         when(publisherService.getPublisherByName(anyString())).thenReturn(publisher);
 
         mockMvc.perform(get("/api/v1/publishers/" + NAME_1)
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", equalTo(NAME_1)));
     }
