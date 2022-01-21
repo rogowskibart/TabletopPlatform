@@ -5,12 +5,6 @@ import GameList from './GameList';
 class GameScreen extends React.Component {
   state = { gameList: [] };
 
-  onButtonClick = async () => {
-    const response = await backend.get('/games/', {});
-
-    this.setState({ gameList: response.data.games });
-  };
-
   componentDidMount = async () => {
     const response = await backend.get('/games/', {});
 
@@ -20,9 +14,6 @@ class GameScreen extends React.Component {
   render() {
     return (
       <div>
-        <button class="ui button" onClick={this.onButtonClick}>
-          Click for games
-        </button>
         <GameList games={this.state.gameList} />
       </div>
     );
