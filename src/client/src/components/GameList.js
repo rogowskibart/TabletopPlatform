@@ -1,13 +1,30 @@
 import React from 'react';
-import axios from 'axios';
 
 class GameList extends React.Component {
-  constructor() {
-    axios.get('http://localhost:8080/api/v1/games', {});
-  }
-
   render() {
-    return <div>GameList</div>;
+    const games = this.props.games.map((game) => {
+      return (
+        <div key={game.id} className="ui card">
+          <div className="content">
+            <div class="header">{game.title}</div>
+            <div className="meta">{game.publisher.name}</div>
+          </div>
+          <div className="extra content">
+            <span className="left floated">{game.minAge}+</span>
+            <span className="right floated">
+              {game.minPlayers}-{game.maxPlayers} players
+            </span>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <div>
+        <div>Found {this.props.games.length} games</div>
+        <div className="ui cards">{games}</div>
+      </div>
+    );
   }
 }
 
