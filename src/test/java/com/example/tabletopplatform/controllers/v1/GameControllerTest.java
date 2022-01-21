@@ -2,6 +2,7 @@ package com.example.tabletopplatform.controllers.v1;
 
 import com.example.tabletopplatform.api.v1.model.GameDTO;
 import com.example.tabletopplatform.services.GameService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,9 +18,10 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -72,7 +74,7 @@ class GameControllerTest {
         when(gameService.getAllGames()).thenReturn(games);
 
         mockMvc.perform(get("/api/v1/games/")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.games", hasSize(2)));
     }
@@ -88,8 +90,25 @@ class GameControllerTest {
 
         when(gameService.getGameByTitle(anyString())).thenReturn(game);
 
-        mockMvc.perform(get("/api/v1/games/" + GAME1_TITLE)
-                .contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/v1/games/title/" + GAME1_TITLE)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title", equalTo(GAME1_TITLE)));
+    }
+
+    @Test
+    void getGameById() throws Exception {
+        GameDTO game = new GameDTO();
+        game.setId(GAME1_ID);
+        game.setTitle(GAME1_TITLE);
+        game.setMinPlayers(GAME1_MIN_PLAYERS);
+        game.setMaxPlayers(GAME1_MAX_PLAYERS);
+        game.setMinAge(GAME1_MIN_AGE);
+
+        when(gameService.getGameById(anyLong())).thenReturn(game);
+
+        mockMvc.perform(get("/api/v1/games/id/" + GAME1_ID)
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title", equalTo(GAME1_TITLE)));
     }
