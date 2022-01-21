@@ -1,8 +1,9 @@
 package com.example.tabletopplatform.controllers.v1;
 
 import com.example.tabletopplatform.api.v1.model.GameDTO;
+import com.example.tabletopplatform.controllers.RestResponseEntityExceptionHandler;
 import com.example.tabletopplatform.services.GameService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.tabletopplatform.services.ResourceNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -48,7 +49,9 @@ class GameControllerTest {
 
     @BeforeEach
     void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(gameController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(gameController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                .build();
     }
 
 
@@ -111,5 +114,15 @@ class GameControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title", equalTo(GAME1_TITLE)));
+    }
+
+    @Test
+    void testNotFoundException() throws Exception {
+
+        when(gameService.getGameById(anyLong())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get("/api/v1/games/id/" + "658")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }

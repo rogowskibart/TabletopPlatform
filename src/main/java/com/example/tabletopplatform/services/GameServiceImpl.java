@@ -2,7 +2,6 @@ package com.example.tabletopplatform.services;
 
 import com.example.tabletopplatform.api.v1.mapper.GameMapper;
 import com.example.tabletopplatform.api.v1.model.GameDTO;
-import com.example.tabletopplatform.domain.Game;
 import com.example.tabletopplatform.repositories.GameRepository;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +36,6 @@ public class GameServiceImpl implements GameService {
     public GameDTO getGameById(Long id) {
         return gameRepository.findById(id)
                 .map(gameMapper::gameToGameDTO)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(ResourceNotFoundException::new);
     }
 }
